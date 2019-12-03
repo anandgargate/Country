@@ -1,0 +1,35 @@
+section {
+    position: relative;
+    width: 300px;
+    .search-box {
+        width: 250px;
+        height: 15px;
+        padding: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        position: absolute;
+        right: 20px;
+        width: 260px;
+        margin: 0;
+        height: 200px;
+        overflow-y: scroll;
+        background: white;
+        z-index: 1000;
+        li {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            border-bottom: none;
+            &:last-child {
+                border-bottom: 1px solid #dddddd;
+            }
+            &:hover {
+                color: #fff;
+                text-decoration: none;
+                background-color: #007bff;
+                cursor: pointer;
+            }
+        }
+    }
+}

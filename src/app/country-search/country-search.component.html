@@ -1,0 +1,35 @@
+<section>
+    <div class="head-container">
+        <app-typeahead [typeaheadList]="typeAheadList" [displayProperty]="'name'"
+            (debounceCallback)="searchCountry($event)" [debounceValue]="500" (onSelect)="selectionCallback($event)">
+        </app-typeahead>
+        <button (click)="clearList()">Clear List</button>
+    </div>
+
+    <div class="error-msg" *ngIf="isError "> No Match found</div>
+    <div class="filtered-list" *ngIf="countryList.length">
+        <table>
+            <thead>
+                <tr>
+                    <th>Add to compare</th>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Region</th>
+                    <th>Timezone</th>
+                    <th>Flag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let countryObj of countryList">
+                    <td><input type="checkbox" [checked]="countryObj.isCompare" (change)="addToCompare(countryObj)">
+                    </td>
+                    <td> {{ countryObj.name }} </td>
+                    <td> {{ countryObj.capital }} </td>
+                    <td> {{ countryObj.region }} </td>
+                    <td> {{ countryObj.timezones.join(',') }} </td>
+                    <td><img src="https://www.countryflags.io/{{countryObj.alpha2Code}}/flat/64.png"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

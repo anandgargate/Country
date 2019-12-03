@@ -1,0 +1,8 @@
+<section class="typeahead">
+    <input #search class="search-box" placeholder="Enter search text">
+    <ul *ngIf="typeaheadList.length">
+        <li *ngFor="let obj of typeaheadList">
+            <a (click)="selectedObj(obj)">{{obj[displayProperty]}}</a>
+        </li>
+    </ul>
+</section>
